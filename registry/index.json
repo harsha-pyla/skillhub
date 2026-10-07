@@ -108,5 +108,110 @@
       "queries"
     ],
     "url": "https://github.com/harsha-pyla/skillhub/tree/main/examples/sql-generator"
+  },
+  {
+    "name": "web3-auditor",
+    "description": "Autonomous smart contract auditing and vulnerability patching for Solidity and Rust.",
+    "tags": [
+      "web3",
+      "crypto",
+      "security",
+      "solidity"
+    ],
+    "url": "https://github.com/harsha-pyla/skillhub/tree/main/examples/web3-auditor"
+  },
+  {
+    "name": "video-to-code",
+    "description": "Analyzes screen recordings or UI mockups and outputs production-ready frontend components.",
+    "tags": [
+      "video",
+      "vision",
+      "frontend",
+      "ui"
+    ],
+    "url": "https://github.com/harsha-pyla/skillhub/tree/main/examples/video-to-code"
+  },
+  {
+    "name": "quantum-circuit-gen",
+    "description": "Design and optimize quantum circuits for Qiskit and Cirq using natural language.",
+    "tags": [
+      "quantum",
+      "qiskit",
+      "physics"
+    ],
+    "url": "https://github.com/harsha-pyla/skillhub/tree/main/examples/quantum-circuit-gen"
+  },
+  {
+    "name": "autonomous-devops",
+    "description": "Diagnoses CI/CD pipeline failures, provisions AWS/GCP resources, and fixes deployment bugs.",
+    "tags": [
+      "devops",
+      "aws",
+      "ci-cd",
+      "infrastructure"
+    ],
+    "url": "https://github.com/harsha-pyla/skillhub/tree/main/examples/autonomous-devops"
+  },
+  {
+    "name": "legal-contract-analyzer",
+    "description": "Cross-references enterprise legal documents against compliance standards (GDPR, SOC2).",
+    "tags": [
+      "legal",
+      "compliance",
+      "enterprise"
+    ],
+    "url": "https://github.com/harsha-pyla/skillhub/tree/main/examples/legal-contract-analyzer"
+  },
+  {
+    "name": "gen-ui-architect",
+    "description": "Generates dynamic, accessible, and responsive GenUI interfaces on the fly.",
+    "tags": [
+      "genui",
+      "react",
+      "accessibility"
+    ],
+    "url": "https://github.com/harsha-pyla/skillhub/tree/main/examples/gen-ui-architect"
+  },
+  {
+    "name": "edge-ml-optimizer",
+    "description": "Quantizes and compiles large language models for edge devices (WASM, CoreML).",
+    "tags": [
+      "ml",
+      "edge",
+      "wasm",
+      "optimization"
+    ],
+    "url": "https://github.com/harsha-pyla/skillhub/tree/main/examples/edge-ml-optimizer"
+  },
+  {
+    "name": "3d-world-builder",
+    "description": "Generates procedural 3D environments, textures, and physics meshes for Unity/Unreal.",
+    "tags": [
+      "3d",
+      "gaming",
+      "unreal",
+      "procedural"
+    ],
+    "url": "https://github.com/harsha-pyla/skillhub/tree/main/examples/3d-world-builder"
+  },
+  {
+    "name": "multilingual-seo-bot",
+    "description": "Analyzes search trends and optimizes full codebases for global multi-language SEO.",
+    "tags": [
+      "seo",
+      "marketing",
+      "i18n"
+    ],
+    "url": "https://github.com/harsha-pyla/skillhub/tree/main/examples/multilingual-seo-bot"
+  },
+  {
+    "name": "api-reverse-engineer",
+    "description": "Given network logs or a swagger file, completely reverse engineers and types the API in TypeScript.",
+    "tags": [
+      "api",
+      "typescript",
+      "reverse-engineering"
+    ],
+    "url": "https://github.com/harsha-pyla/skillhub/tree/main/examples/api-reverse-engineer"
   }
 ]

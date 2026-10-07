@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/harsha-pyla/skillhub#readme",
   "dependencies": {
+    "@harsha1029/skillhub": "^1.1.0",
     "commander": "^15.0.0"
   },
   "devDependencies": {
