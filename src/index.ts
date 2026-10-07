@@ -5,6 +5,7 @@ import { installCommand } from './commands/install.js';
 import { listCommand } from './commands/list.js';
 import { updateCommand } from './commands/update.js';
 import { removeCommand } from './commands/remove.js';
+import { searchCommand } from './commands/search.js';
 
 const program = new Command();
 
@@ -19,5 +20,6 @@ program.addCommand(installCommand);
 program.addCommand(listCommand);
 program.addCommand(updateCommand);
 program.addCommand(removeCommand);
+program.addCommand(searchCommand);
 
 program.parse();
