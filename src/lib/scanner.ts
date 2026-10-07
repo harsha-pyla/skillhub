@@ -11,7 +11,7 @@ const DANGEROUS_COMMANDS = [
 ];
 
 const SECRET_PATTERNS = [
-  /sk_[a-zA-Z0-9]{20,}/, // Typical secret keys like Stripe/OpenAI
+  /sk_[a-zA-Z0-9_]{20,}/, // Typical secret keys like Stripe/OpenAI
   /AKIA[0-9A-Z]{16}/,    // AWS Access Key
   /api[_-]?key\s*[:=]\s*['"][a-zA-Z0-9\-_]+['"]/i, // Generic API key assignment
   /password\s*[:=]\s*['"][a-zA-Z0-9\-_]+['"]/i

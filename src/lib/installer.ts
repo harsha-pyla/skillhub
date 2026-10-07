@@ -13,7 +13,7 @@ function askUser(question: string): Promise<boolean> {
     output: process.stdout
   });
   return new Promise(resolve => {
-    rl.question(question, (answer) => {
+    rl.question(question, (answer: string) => {
       rl.close();
       resolve(answer.toLowerCase().startsWith('y'));
     });
