@@ -27,7 +27,7 @@ Install a skill either by its short registry name or directly via a GitHub URL. 
 skillhub install dummy-skill
 
 # Install from a specific GitHub repo/folder
-skillhub install https://github.com/harsha-pyla/skillhub/tree/main/dummy-skill
+skillhub install https://github.com/harsha-pyla/skillhub/tree/main/examples/dummy-skill
 
 # Specify target agent and install globally
 skillhub install dummy-skill --agent gemini --global

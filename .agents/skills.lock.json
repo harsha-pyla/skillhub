@@ -1,0 +1,10 @@
+{
+  "skills": {
+    "bad-skill": {
+      "name": "bad-skill",
+      "sourceUrl": "https://github.com/harsha-pyla/skillhub/tree/main/bad-skill",
+      "commitHash": "a5ff5267d724c2eeae2235a3ca01b265df6049a8",
+      "installedDate": "2026-10-07T08:15:10.415Z"
+    }
+  }
+}
