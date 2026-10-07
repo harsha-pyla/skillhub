@@ -3,15 +3,24 @@ import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 import os from 'os';
+import { agentPaths, AgentType } from '../lib/agents.js';
 
 export const installCommand = new Command('install')
   .description('Install a skill from a GitHub URL')
   .argument('<url>', 'GitHub URL of the skill repository or folder')
-  .action((url: string) => {
+  .option('-a, --agent <agent>', 'Target agent (claude, codex, copilot, gemini)', 'claude')
+  .option('-g, --global', 'Install globally in the home directory')
+  .action((url: string, options: { agent: string, global?: boolean }) => {
     let tempDir = '';
     try {
+      // Validate agent
+      const agent = options.agent as AgentType;
+      if (!agentPaths[agent]) {
+        console.error(`Error: Unsupported agent '${agent}'. Supported agents are: ${Object.keys(agentPaths).join(', ')}`);
+        process.exit(1);
+      }
+
       // Basic URL parser
-      // Matches https://github.com/owner/repo or https://github.com/owner/repo/tree/main/subfolder
       const match = url.match(/github\.com\/([^\/]+)\/([^\/]+)(?:\/tree\/[^\/]+\/(.+))?/);
       if (!match) {
         console.error('Error: Invalid GitHub URL. Must be a github.com URL.');
@@ -40,8 +49,9 @@ export const installCommand = new Command('install')
         process.exit(1);
       }
       
-      // Prepare destination directory (.claude/skills/<skill-name>)
-      const destDir = path.join(process.cwd(), '.claude', 'skills', skillName);
+      // Prepare destination directory based on agent config
+      const basePath = options.global ? agentPaths[agent].global : path.join(process.cwd(), agentPaths[agent].local);
+      const destDir = path.join(basePath, skillName);
       
       // Remove destination if it already exists to overwrite it
       if (fs.existsSync(destDir)) {
@@ -53,7 +63,7 @@ export const installCommand = new Command('install')
       // Copy files to the destination
       fs.cpSync(sourcePath, destDir, { recursive: true });
       
-      console.log(`Success! Skill '${skillName}' installed at .claude/skills/${skillName}`);
+      console.log(`Success! Skill '${skillName}' installed at ${destDir}`);
       
     } catch (err: any) {
       console.error('Error installing skill:', err.message);
