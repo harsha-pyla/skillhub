@@ -10,7 +10,8 @@ export const updateCommand = new Command('update')
   .argument('[name]', 'Name of the skill to update (leave blank to update all)')
   .option('-a, --agent <agent>', 'Target agent (claude, codex, copilot, gemini)', 'claude')
   .option('-g, --global', 'Update globally installed skills')
-  .action((name: string | undefined, options: { agent: string, global?: boolean }) => {
+  .option('-y, --yes', 'Skip security prompts')
+  .action(async (name: string | undefined, options: { agent: string, global?: boolean, yes?: boolean }) => {
     const agent = options.agent as AgentType;
     if (!agentPaths[agent]) {
       console.error(`Error: Unsupported agent '${agent}'.`);
@@ -48,7 +49,7 @@ export const updateCommand = new Command('update')
         
         if (remoteHash && remoteHash !== skill.commitHash) {
           console.log(`New version found for '${skillName}'. Updating...`);
-          installSkill(skill.sourceUrl, agent, !!options.global);
+          await installSkill(skill.sourceUrl, agent, !!options.global, !!options.yes);
         } else {
           console.log(`Skill '${skillName}' is already up to date.`);
         }

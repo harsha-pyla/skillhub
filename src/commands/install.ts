@@ -8,7 +8,8 @@ export const installCommand = new Command('install')
   .argument('<url_or_name>', 'GitHub URL of the skill repository or short name')
   .option('-a, --agent <agent>', 'Target agent (claude, codex, copilot, gemini)', 'claude')
   .option('-g, --global', 'Install globally in the home directory')
-  .action(async (urlOrName: string, options: { agent: string, global?: boolean }) => {
+  .option('-y, --yes', 'Skip security prompts')
+  .action(async (urlOrName: string, options: { agent: string, global?: boolean, yes?: boolean }) => {
     try {
       const agent = options.agent as AgentType;
       if (!agentPaths[agent]) {
@@ -31,7 +32,7 @@ export const installCommand = new Command('install')
         console.log(`Found '${urlOrName}' in registry! Target URL: ${finalUrl}`);
       }
 
-      installSkill(finalUrl, agent, !!options.global);
+      await installSkill(finalUrl, agent, !!options.global, !!options.yes);
     } catch (err: any) {
       console.error('Error installing skill:', err.message);
       process.exit(1);

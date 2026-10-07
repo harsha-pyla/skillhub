@@ -2,10 +2,25 @@ import { execSync } from 'child_process';
 import fs from 'fs';
 import path from 'path';
 import os from 'os';
+import readline from 'readline';
 import { agentPaths, AgentType } from './agents.js';
 import { getLockfilePath, readLockfile, writeLockfile } from './lockfile.js';
+import { scanDirectory } from './scanner.js';
 
-export function installSkill(url: string, agent: AgentType, isGlobal: boolean) {
+function askUser(question: string): Promise<boolean> {
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+  });
+  return new Promise(resolve => {
+    rl.question(question, (answer) => {
+      rl.close();
+      resolve(answer.toLowerCase().startsWith('y'));
+    });
+  });
+}
+
+export async function installSkill(url: string, agent: AgentType, isGlobal: boolean, skipPrompt: boolean = false) {
   let tempDir = '';
   try {
     const match = url.match(/github\.com\/([^\/]+)\/([^\/]+)(?:\/tree\/[^\/]+\/(.+))?/);
@@ -27,6 +42,23 @@ export function installSkill(url: string, agent: AgentType, isGlobal: boolean) {
     const skillMdPath = path.join(sourcePath, 'SKILL.md');
     if (!fs.existsSync(skillMdPath)) {
       throw new Error(`SKILL.md not found in ${url}`);
+    }
+
+    // Security scan
+    const scan = scanDirectory(sourcePath);
+    if (scan.warnings.length > 0) {
+      console.warn('\n⚠️  SECURITY WARNINGS:');
+      scan.warnings.forEach(w => console.warn(`   - ${w}`));
+      
+      if (!skipPrompt) {
+        const proceed = await askUser('\nInstall anyway? (y/n) ');
+        if (!proceed) {
+          console.log('Installation aborted.');
+          return;
+        }
+      } else {
+        console.log('\nProceeding with installation (--yes flag provided).');
+      }
     }
     
     const basePath = isGlobal ? agentPaths[agent].global : path.join(process.cwd(), agentPaths[agent].local);
