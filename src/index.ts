@@ -3,6 +3,8 @@ import { Command } from 'commander';
 import { helloCommand } from './commands/hello.js';
 import { installCommand } from './commands/install.js';
 import { listCommand } from './commands/list.js';
+import { updateCommand } from './commands/update.js';
+import { removeCommand } from './commands/remove.js';
 
 const program = new Command();
 
@@ -15,5 +17,7 @@ program
 program.addCommand(helloCommand);
 program.addCommand(installCommand);
 program.addCommand(listCommand);
+program.addCommand(updateCommand);
+program.addCommand(removeCommand);
 
 program.parse();
