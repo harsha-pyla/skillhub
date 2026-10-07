@@ -1,4 +1,6 @@
-# skillhub
+# SkillHub
+
+![SkillHub Terminal Demo](./demo.jpg)
 
 SkillHub is a powerful CLI package manager for AI Agent skills. It allows you to seamlessly search, install, update, and manage skills for different AI agents (like Claude, Codex, Copilot, and Gemini) from public GitHub repositories or the centralized registry.
 
