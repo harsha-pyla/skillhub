@@ -2,6 +2,7 @@
 import { Command } from 'commander';
 import { helloCommand } from './commands/hello.js';
 import { installCommand } from './commands/install.js';
+import { listCommand } from './commands/list.js';
 
 const program = new Command();
 
@@ -13,5 +14,6 @@ program
 // Register commands
 program.addCommand(helloCommand);
 program.addCommand(installCommand);
+program.addCommand(listCommand);
 
 program.parse();

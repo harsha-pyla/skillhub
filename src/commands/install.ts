@@ -4,6 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import os from 'os';
 import { agentPaths, AgentType } from '../lib/agents.js';
+import { getLockfilePath, readLockfile, writeLockfile } from '../lib/lockfile.js';
 
 export const installCommand = new Command('install')
   .description('Install a skill from a GitHub URL')
@@ -63,6 +64,20 @@ export const installCommand = new Command('install')
       // Copy files to the destination
       fs.cpSync(sourcePath, destDir, { recursive: true });
       
+      // Get commit hash from the cloned repo
+      const commitHash = execSync('git rev-parse HEAD', { cwd: tempDir }).toString().trim();
+      
+      // Update lockfile
+      const lockfilePath = getLockfilePath(basePath);
+      const lockfileData = readLockfile(lockfilePath);
+      lockfileData.skills[skillName] = {
+        name: skillName,
+        sourceUrl: url,
+        commitHash,
+        installedDate: new Date().toISOString()
+      };
+      writeLockfile(lockfilePath, lockfileData);
+
       console.log(`Success! Skill '${skillName}' installed at ${destDir}`);
       
     } catch (err: any) {
