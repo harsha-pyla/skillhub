@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/@harsha1029/skillhub.svg)](https://www.npmjs.com/package/@harsha1029/skillhub)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-![SkillHub Terminal Demo](./demo.jpg)
+![SkillHub Terminal Demo](./demo.gif)
 
 A universal package manager for AI Agent skills. Easily discover, install, and manage skills for Claude, Codex, Copilot, Gemini, and other autonomous agents.
 
