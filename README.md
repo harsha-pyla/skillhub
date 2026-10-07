@@ -7,7 +7,7 @@ SkillHub is a powerful CLI package manager for AI Agent skills. It allows you to
 Install the CLI globally using npm:
 
 ```bash
-npm install -g @harsha-pyla/skillhub
+npm install -g @harsha1029/skillhub
 ```
 
 ## Usage Examples

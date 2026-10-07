@@ -1,5 +1,5 @@
 {
-  "name": "@harsha-pyla/skillhub",
+  "name": "@harsha1029/skillhub",
   "version": "1.1.0",
   "description": "",
   "main": "dist/index.js",
@@ -32,6 +32,6 @@
     "vitest": "^5.0.3"
   },
   "bin": {
-    "skillhub": "./dist/index.js"
+    "skillhub": "dist/index.js"
   }
 }
