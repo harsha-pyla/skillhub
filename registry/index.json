@@ -2,7 +2,111 @@
   {
     "name": "dummy-skill",
     "description": "A test skill for skillhub.",
-    "tags": ["test", "dummy", "example"],
+    "tags": [
+      "test",
+      "dummy",
+      "example"
+    ],
     "url": "https://github.com/harsha-pyla/skillhub/tree/main/examples/dummy-skill"
+  },
+  {
+    "name": "e2e-tester",
+    "description": "Next generation e2e testing framework agent skill for web and mobile apps.",
+    "tags": [
+      "testing",
+      "e2e",
+      "qa"
+    ],
+    "url": "https://github.com/harsha-pyla/skillhub/tree/main/examples/e2e-tester"
+  },
+  {
+    "name": "text-to-cad",
+    "description": "Give your agent CAD superpowers. Generate 3D models from text descriptions.",
+    "tags": [
+      "cad",
+      "3d",
+      "design"
+    ],
+    "url": "https://github.com/harsha-pyla/skillhub/tree/main/examples/text-to-cad"
+  },
+  {
+    "name": "claude-mem",
+    "description": "Persistent context across sessions for your agent. Works with Claude and others.",
+    "tags": [
+      "memory",
+      "context",
+      "claude"
+    ],
+    "url": "https://github.com/harsha-pyla/skillhub/tree/main/examples/claude-mem"
+  },
+  {
+    "name": "agency-agents",
+    "description": "A complete AI agency at your fingertips. Specialized expert personas.",
+    "tags": [
+      "agency",
+      "personas",
+      "experts"
+    ],
+    "url": "https://github.com/harsha-pyla/skillhub/tree/main/examples/agency-agents"
+  },
+  {
+    "name": "diagram-design",
+    "description": "Editorial diagram design skills. Generates clean HTML+SVG diagrams.",
+    "tags": [
+      "diagrams",
+      "svg",
+      "design"
+    ],
+    "url": "https://github.com/harsha-pyla/skillhub/tree/main/examples/diagram-design"
+  },
+  {
+    "name": "deep-gemm",
+    "description": "Clean and efficient kernel generation for GPU matrix multiplications.",
+    "tags": [
+      "gpu",
+      "cuda",
+      "math"
+    ],
+    "url": "https://github.com/harsha-pyla/skillhub/tree/main/examples/deep-gemm"
+  },
+  {
+    "name": "open-gym",
+    "description": "Agent skill to generate body weight workout routines and log workouts.",
+    "tags": [
+      "fitness",
+      "health",
+      "planning"
+    ],
+    "url": "https://github.com/harsha-pyla/skillhub/tree/main/examples/open-gym"
+  },
+  {
+    "name": "react-scaffold",
+    "description": "Instantly scaffold complex React components and hooks with best practices.",
+    "tags": [
+      "react",
+      "frontend",
+      "components"
+    ],
+    "url": "https://github.com/harsha-pyla/skillhub/tree/main/examples/react-scaffold"
+  },
+  {
+    "name": "git-helper",
+    "description": "Advanced Git workflow automation and conflict resolution strategies.",
+    "tags": [
+      "git",
+      "vcs",
+      "workflow"
+    ],
+    "url": "https://github.com/harsha-pyla/skillhub/tree/main/examples/git-helper"
+  },
+  {
+    "name": "sql-generator",
+    "description": "Translates natural language into complex, optimized SQL queries.",
+    "tags": [
+      "sql",
+      "database",
+      "queries"
+    ],
+    "url": "https://github.com/harsha-pyla/skillhub/tree/main/examples/sql-generator"
   }
 ]
