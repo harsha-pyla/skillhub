@@ -1,93 +1,90 @@
 # SkillHub
 
+[![npm version](https://img.shields.io/npm/v/@harsha1029/skillhub.svg)](https://www.npmjs.com/package/@harsha1029/skillhub)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ![SkillHub Terminal Demo](./demo.jpg)
 
-SkillHub is a powerful CLI package manager for AI Agent skills. It allows you to seamlessly search, install, update, and manage skills for different AI agents (like Claude, Codex, Copilot, and Gemini) from public GitHub repositories or the centralized registry.
+A universal package manager for AI Agent skills. Easily discover, install, and manage skills for Claude, Codex, Copilot, Gemini, and other autonomous agents.
 
 ## Installation
 
-Install the CLI globally using npm:
+Install globally via npm:
 
 ```bash
 npm install -g @harsha1029/skillhub
 ```
 
-## Usage Examples
+## Features
 
-Here are all the available commands you can use with SkillHub:
+- **Centralized Registry:** Search and install community skills by name or directly via GitHub URL.
+- **Built-in Security Scanner:** Automatically scans incoming skills for dangerous shell commands (e.g., `rm -rf`) and leaked secrets before installation.
+- **Multi-Agent Routing:** Isolate skills locally or globally for specific agents (`claude`, `codex`, `copilot`, `gemini`).
+- **State Management:** Strict lockfile architecture ensures predictable updates and dependency tracking.
 
-### `search`
-Search the public skill registry by a keyword, description, or tag.
+## CLI Reference
+
+### Search & Install
+Search the registry for a specific capability, then install it securely.
+
 ```bash
-skillhub search <keyword>
+skillhub search react
+skillhub install react-scaffold
+
+# Install directly from a repository URL
+skillhub install https://github.com/user/repo/tree/main/skill-folder
+
+# Bypass security prompts (CI/CD environments)
+skillhub install react-scaffold --yes
+
+# Route to a specific agent globally
+skillhub install react-scaffold --agent gemini --global
 ```
 
-### `install`
-Install a skill either by its short registry name or directly via a GitHub URL. Includes a built-in security scanner to catch dangerous commands or leaked secrets.
+### Manage Dependencies
+View installed skills and update them to their latest remote commits.
+
 ```bash
-# Install from registry
-skillhub install dummy-skill
+# List installed skills, versions, and hashes
+skillhub list
 
-# Install from a specific GitHub repo/folder
-skillhub install https://github.com/harsha-pyla/skillhub/tree/main/examples/dummy-skill
-
-# Specify target agent and install globally
-skillhub install dummy-skill --agent gemini --global
-
-# Skip security prompts
-skillhub install dummy-skill --yes
-```
-
-### `update`
-Check for newer commits on the GitHub repository and update your installed skills.
-```bash
 # Update all installed skills
 skillhub update
 
-# Update a specific skill
-skillhub update dummy-skill
+# Remove a specific skill
+skillhub remove react-scaffold
 ```
 
-### `list`
-List all installed skills, including their source URLs, commit hashes, and installation dates.
+### Validation & Publishing
+Validate local skill syntax and prepare for registry submission.
+
 ```bash
-skillhub list --agent gemini --global
+# Check local SKILL.md YAML frontmatter
+skillhub validate ./my-skill
+
+# Get registry submission instructions
+skillhub publish ./my-skill
 ```
 
-### `remove`
-Remove a skill completely from your machine and update the lockfile.
-```bash
-skillhub remove dummy-skill --agent gemini --global
+## Creating a Skill
+
+A valid skill requires a `SKILL.md` file at its root with YAML frontmatter containing a `name` and `description`.
+
+```markdown
+---
+name: my-skill
+description: Comprehensive summary of the agent's capability.
+---
+# my-skill
+Detailed instructions and context for the AI agent.
 ```
 
-### `validate`
-Check your own skill folder to ensure it has valid YAML frontmatter (like `name` and `description`) in `SKILL.md`.
-```bash
-skillhub validate ./my-awesome-skill
-```
-
-### `publish`
-Validate your skill and get instructions on how to publish it to the central registry.
-```bash
-skillhub publish ./my-awesome-skill
-```
-
-## How to Contribute a Skill
-
-1. Ensure your skill contains a `SKILL.md` file with valid frontmatter (`name` and `description`).
-2. Push your skill to a public GitHub repository.
-3. Fork the [skillhub repository](https://github.com/harsha-pyla/skillhub).
-4. Add your skill's metadata to the `registry/index.json` file in your fork:
-   ```json
-   {
-     "name": "my-awesome-skill",
-     "description": "This skill does incredible things",
-     "tags": ["ai", "awesome"],
-     "url": "https://github.com/username/repo/tree/main/skill-folder"
-   }
-   ```
-5. Commit and open a Pull Request against the main SkillHub repository. Once merged, anyone can install it!
+To publish your skill to the global registry:
+1. Push your valid skill to a public GitHub repository.
+2. Fork this repository.
+3. Add your metadata to `registry/index.json`.
+4. Submit a Pull Request.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT License. See [LICENSE](LICENSE) for details.
