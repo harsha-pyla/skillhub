@@ -1,0 +1,8 @@
+[
+  {
+    "name": "dummy-skill",
+    "description": "A test skill for skillhub.",
+    "tags": ["test", "dummy", "example"],
+    "url": "https://github.com/harsha-pyla/skillhub/tree/main/dummy-skill"
+  }
+]
