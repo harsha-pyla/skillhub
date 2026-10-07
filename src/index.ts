@@ -6,6 +6,8 @@ import { listCommand } from './commands/list.js';
 import { updateCommand } from './commands/update.js';
 import { removeCommand } from './commands/remove.js';
 import { searchCommand } from './commands/search.js';
+import { validateCommand } from './commands/validate.js';
+import { publishCommand } from './commands/publish.js';
 
 const program = new Command();
 
@@ -21,5 +23,7 @@ program.addCommand(listCommand);
 program.addCommand(updateCommand);
 program.addCommand(removeCommand);
 program.addCommand(searchCommand);
+program.addCommand(validateCommand);
+program.addCommand(publishCommand);
 
 program.parse();
